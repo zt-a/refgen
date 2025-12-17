@@ -49,8 +49,16 @@ async def register(
     # Создаем профиль с пустыми данными
     profile = Profile(
         user_id=new_user.id,
-        name="",
-        surname="",
+        name="____________________",
+        surname="__________________",
+        patronymic="_________________",
+        phone_number="+996700700700",
+        phone_number_verified=False,
+        university="__________________",
+        faculty="__________",
+        course=1,
+        group="______________",
+        city="Бишкек"
     )
     session.add(profile)
     await session.commit()

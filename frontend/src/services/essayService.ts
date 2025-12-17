@@ -58,11 +58,8 @@ export const getAllEssays = async () => {
       id: number;
       topic: string;
       page_count: number;
-      language?: string;
+      date: string;
       status: string;
-      chapters: { id: number; title: string; position: number; content?: string }[];
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      metadata?: any;
     }[];
   };
 };

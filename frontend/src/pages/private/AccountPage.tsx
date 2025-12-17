@@ -6,11 +6,13 @@ import ButtonPrimary from "../../components/UI/ButtonPrimary";
 import SelectInput from "../../components/UI/SelectInput";
 import styles from '../../styles/pages/AccountPage.module.css';
 import Button from "../../components/UI/Button";
+import { useNavigate } from "react-router-dom";
 
 const AccountPage = () => {
     const { profile, updateProfile, isAuth, getProfile, logout } = useContext(AuthContext);
     const [form, setForm] = useState<Profile | null>(null);
     const [error, setError] = useState<string>("");
+    const navigate = useNavigate();
 
     // Загружаем профиль один раз при монтировании
     useEffect(() => {
@@ -49,6 +51,8 @@ const AccountPage = () => {
             await updateProfile(form);
             setError("");
             alert("Профиль успешно обновлен. Теперь можно генерировать документы.");
+            navigate("/dashboard");
+
         } catch (e) {
             setError("Ошибка при обновлении профиля.");
             console.log(e);

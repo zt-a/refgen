@@ -24,16 +24,16 @@ const LibraryPage = () => {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
-    $api.get("/api/v1/essays")
+    $api.get("api/v1/essays")
       .then(res => setEssays(res.data.essays)) // <-- добавляем .essays
-      .catch(() => console.error("Ошибка загрузки эссе"))
+      .catch((e) => console.error("Ошибка загрузки эссе", e))
       .finally(() => setLoading(false));
   }, []);
 
   const downloadRefPrint = async (id: string) => {
     try {
       const response = await $api.get(
-        `/api/v1/refprint/${id}`,
+        `api/v1/refprint/${id}`,
         {
           responseType: 'blob',
         }

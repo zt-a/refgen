@@ -20,7 +20,7 @@ FROM nginx:1.27-alpine
 RUN apk add --no-cache openssl && \
     mkdir -p /etc/nginx/certs && \
     openssl req -x509 -nodes -days 365 \
-        -subj "/CN=localhost" \
+        -subj "/CN=refgen.kg" \
         -newkey rsa:2048 \
         -keyout /etc/nginx/certs/tls.key \
         -out /etc/nginx/certs/tls.crt

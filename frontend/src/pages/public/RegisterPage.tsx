@@ -31,7 +31,7 @@ const RegisterPage = () => {
     const handleRegister = async (username: string, email: string, password: string) => {
         try {
             await register({ username, email, password });
-            navigate('/'); // редирект после успешной регистрации
+            navigate('/account'); // редирект после успешной регистрации
         } catch (e) {
             console.log('Ошибка регистрации', e);
         }

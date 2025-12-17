@@ -75,9 +75,6 @@
     border-left: 1px solid #e5e5e5;
 }
 
-.headerRight {
-    margin-right: 64px;
-}
 
 @media (max-width: 1024px) {
     .Header {

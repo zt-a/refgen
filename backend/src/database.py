@@ -11,12 +11,17 @@ engine = create_async_engine(
     settings.db.url,
     echo=settings.db.echo,
     future=settings.db.future,
+    pool_size=10,
+    max_overflow=5,
+    pool_timeout=30,
+    pool_recycle=1800,
 )
 
 sync_engine = create_engine(
     settings.db.url.replace("+asyncpg", ""),
     echo=settings.db.echo,
     future=settings.db.future,
+    pool_pre_ping=True
 )
 
 

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getChapters, updateChapterTitle } from "../../services/essayService";
+import ButtonPrimary from "../../components/UI/ButtonPrimary";
 
 type Chapter = {
   id: number;
@@ -69,13 +70,13 @@ const GeneratePlanPage = () => {
       </ul>
 
       <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
-        <button onClick={handleSaveChanges} disabled={saving}>
+        <ButtonPrimary onClick={handleSaveChanges} disabled={saving}>
           {saving ? "Сохраняем..." : "Сохранить изменения"}
-        </button>
+        </ButtonPrimary>
 
-        <button onClick={() => navigate(`/generate/item/${essay_id}`)}>
+        <ButtonPrimary onClick={() => navigate(`/generate/item/${essay_id}`)}>
           Сгенерировать реферат
-        </button>
+        </ButtonPrimary>
       </div>
     </div>
   );

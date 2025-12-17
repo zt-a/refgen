@@ -8,6 +8,7 @@ import styles from '../../styles/pages/DashboardPage.module.css';
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { $api } from "../../api/api";
+import { getAllEssays } from "../../services/essayService";
 
 type Essay = {
   id: number;
@@ -23,19 +24,34 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  useEffect(() => {
+//  useEffect(() => {
       // eslint-disable-next-line react-hooks/set-state-in-effect
+//      setLoading(true);
+//      console.log($api.defaults.baseURL);
+//      $api.get(`${$api.defaults.baseURL}/api/v1/essays`)
+//        .then(res => setEssays(res.data.essays)) // <-- добавляем .essays
+//        .catch(() => console.error("Ошибка загрузки эссе"))
+//       .finally(() => setLoading(false));
+//  }, []);
+      useEffect(() => {
+    const fetchEssays = async () => {
       setLoading(true);
-      $api.get("/api/v1/essays")
-        .then(res => setEssays(res.data.essays)) // <-- добавляем .essays
-        .catch(() => console.error("Ошибка загрузки эссе"))
-        .finally(() => setLoading(false));
+      try {
+        const data = await getAllEssays();
+        setEssays(data.essays);
+      } catch (err) {
+        console.error("Ошибка загрузки эссе", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEssays();
   }, []);
-  
   const downloadRefPrint = async (id: string) => {
     try {
       const response = await $api.get(
-        `/api/v1/refprint/${id}`,
+        `api/v1/refprint/${id}`,
         {
           responseType: 'blob',
         }

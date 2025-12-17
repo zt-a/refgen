@@ -22,6 +22,11 @@ app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:5173",
+    "https://185.177.116.84",
+    "http://185.177.116.84",
+#    "http://refgen.kg",
+    "https://refgen.kg",
+    "https://www.refgen.kg"
 ]
 
 app.add_middleware(

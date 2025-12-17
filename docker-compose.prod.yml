@@ -1,6 +1,9 @@
 version: "3.9"
 
 x-backend-defaults: &backend-defaults
+  build:
+    context: ./backend
+    dockerfile: Dockerfile
   image: ${BACKEND_IMAGE:-refgen-backend:latest}
   env_file:
     - backend/.env.docker
@@ -20,9 +23,6 @@ x-backend-defaults: &backend-defaults
 services:
   api:
     <<: *backend-defaults
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
     command: ["api"]
     ports:
       - "${BACKEND_HTTP_PORT:-8000}:8000"
@@ -38,6 +38,7 @@ services:
       dockerfile: Dockerfile
       args:
         VITE_API_URL: ${VITE_API_URL:-/api}
+        #VITE_API_URL: https://refgen.kg/api/
     depends_on:
       api:
         condition: service_started
@@ -47,7 +48,9 @@ services:
     networks:
       - refgen
     restart: unless-stopped
-
+    volumes:
+      - ./frontend/certs:/etc/nginx/certs:ro
+    
   db:
     image: postgres:15-alpine
     environment:
@@ -97,4 +100,5 @@ volumes:
 
 networks:
   refgen:
+    external: true
     name: ${DOCKER_NETWORK_NAME:-refgen}
