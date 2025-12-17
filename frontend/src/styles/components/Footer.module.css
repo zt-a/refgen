@@ -1,0 +1,17 @@
+.Footer {
+    border-top: 1px solid silver;
+    color: #2f2f2fd0;
+    height: 90px;
+    text-align: center;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .hideOnSmall {
+        display: none;
+    }
+}

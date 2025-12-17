@@ -1,0 +1,44 @@
+{
+  "welcome": "Добро пожаловать",
+
+  "login": "Войти",
+  "register": "Зарегистрироваться",
+
+  "loginTitle": "Вход в аккаунт",
+  "loginDescription": "Войдите, чтобы продолжить работу",
+  "loginFormEmailLabel": "Email",
+  "loginFormEmailPlaceholder": "your@email.com",
+  "loginFormPasswordLabel": "Пароль",
+  "loginFormPasswordPlaceholder": "Пароль",
+  "loginFormSubmit": "Войти",
+  "loginForgotPassword": "Забыли пароль?",
+  "loginAuthVariant": "Нет аккаунта?",
+
+
+  "registerTitle": "Создание аккаунта",
+  "registerDescription": "Зарегистрируйтесь и начните работать",
+  "registerFormUsernameLabel": "Имя пользователя",
+  "registerFormUsernamePlaceholder": "Имя пользователя",
+  "registerFormEmailLabel": "Email",
+  "registerFormEmailPlaceholder": "Email",
+  "registerFormPasswordLabel": "Пароль",
+  "registerFormPasswordPlaceholder": "Пароль",
+  "registerFormConfirmPasswordLabel": "Подтвердите пароль",
+  "registerFormConfirmPasswordPlaceholder": "Подтвердите пароль",
+  "registerFormSubmit": "Создать аккаунт",
+  "registerAuthVariant": "Уже есть аккаунт?",
+
+  "profile": "Профиль",
+  "balance": "Баланс",
+  "signOut": "Выйти",
+  "back": "Назад",
+  "read": "Посмотреть",
+  "download": "Скачать",
+  "edit": "Редактировать",
+  "delete": "Удалить",
+  "dashboard": "Панель управления",
+  "library": "Библиотека",
+  "generate": "Сгенерировать",
+  "payment": "Оплата",
+  "language": "Язык"
+}

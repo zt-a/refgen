@@ -1,0 +1,63 @@
+.Welcome {
+    text-align: start;
+    font-weight: 500;
+    color: #333;
+}
+
+.SubWelcome {
+    text-align: start;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+}
+
+
+.Dashboard a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.InfoCards {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.InfoCards a {
+    width: 100%;
+}
+
+
+@media (max-width: 1024px) {
+    .InfoCards {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+.cards {
+    border: 1px solid #e5e5e5;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 10px;
+}
+
+.cards .headText {
+    font-weight: 500;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    font-size: 20px;
+    margin: 10px;
+    width: 100%;
+}
+
+
+.cards .cardItem {
+    margin-top: 10px;
+}
+
+.mainBtn {
+    width: 100%;
+}

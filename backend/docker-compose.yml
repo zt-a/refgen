@@ -1,0 +1,97 @@
+version: "3.9"
+
+x-backend-build: &backend-build
+  build:
+    context: .
+  image: refgen-ai-backend
+
+services:
+  api:
+    <<: *backend-build
+    env_file: .env.docker
+    depends_on:
+      db:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    volumes:
+      - saved_docs:/app/saved_docs
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  worker:
+    <<: *backend-build
+    command: ["worker"]
+    env_file: .env.docker
+    depends_on:
+      db:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - saved_docs:/app/saved_docs
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  redis:
+    image: redis:7.2-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+volumes:
+  postgres_data:
+  saved_docs:
+
+networks:
+  refgen:

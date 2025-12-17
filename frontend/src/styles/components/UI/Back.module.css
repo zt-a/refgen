@@ -1,0 +1,17 @@
+.backLink {
+    display: inline-flex;
+    /* выстраиваем иконку и текст в одну линию */
+    align-items: center;
+    /* вертикально выравниваем по центру */
+    gap: 8px;
+    /* расстояние между иконкой и текстом */
+    font-size: 16px;
+    /* цвет текста */
+    text-decoration: none;
+    /* убрать подчеркивание */
+}
+
+.backLink:hover {
+    opacity: 0.8;
+    /* небольшой hover эффект */
+}

@@ -1,0 +1,58 @@
+.Logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* только иконка имеет фон! */
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 8px;
+    background: linear-gradient(to right, #0073ffd0, #8400ffd0);
+}
+
+.text {
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    user-select: none;
+}
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .iconWrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .text {
+        font-size: 15px;
+    }
+
+    .Logo {
+        gap: 8px;
+    }
+}
+
+/* Смартфоны (до 768px) */
+@media (max-width: 768px) {
+    .iconWrapper {
+        width: 32px;
+        height: 32px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .Logo {
+        gap: 6px;
+    }
+}

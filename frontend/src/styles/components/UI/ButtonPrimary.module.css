@@ -1,0 +1,35 @@
+.button {
+    background: linear-gradient(to right, #0073ffd0, #8400ffd0);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(110, 32, 184, 0.5);
+}
+
+/* Планшеты (ширина до 1024px) */
+@media (max-width: 1024px) {
+    .button {
+        padding: 12px 20px;
+        font-size: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Смартфоны (ширина до 768px) */
+@media (max-width: 768px) {
+    .button {
+        padding: 14px 16px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

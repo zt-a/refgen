@@ -1,0 +1,45 @@
+{
+"welcome": "Welcome",
+
+"login": "Login",
+"register": "Register",
+
+"loginTitle": "Account Login",
+"loginDescription": "Log in to continue",
+"loginFormEmailLabel": "Email", 
+"loginFormEmailPlaceholder": "your@email.com", 
+"loginFormPasswordLabel": "Password", 
+"loginFormPasswordPlaceholder": "Password",
+"loginFormSubmit": "Login",
+"loginForgotPassword": "Forgot your password?",
+"loginAuthVariant": "Don't have an account?",
+
+"registerTitle": "Create an account",
+"registerDescription": "Register and start working",
+"registerFormUsernameLabel": "Username",
+"registerFormUsernamePlaceholder": "Username",
+"registerFormEmailLabel": "Email",
+"registerFormEmailPlaceholder": "Email",
+"registerFormPasswordLabel": "Password",
+"registerFormPasswordPlaceholder": "Password",
+"registerFormConfirmPasswordLabel": "Confirm Password", 
+"registerFormConfirmPasswordPlaceholder": "Confirm Password",
+"registerFormSubmit": "Create an account",
+"registerAuthVariant": "Already have an account?",
+
+"profile": "Profile",
+"balance": "Balance",
+"signOut": "Sign Out",
+"back": "Back",
+"read": "View",
+"download": "Download",
+"edit": "Edit",
+"delete": "Delete",
+
+"dashboard": "Dashboard",
+"library": "Library",
+"generate": "Generate",
+"payment": "Payment",
+"language": "Language"
+
+}

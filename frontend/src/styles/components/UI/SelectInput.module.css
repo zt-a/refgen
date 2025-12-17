@@ -1,0 +1,30 @@
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    width: 90%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.select{
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.select:focus {
+    /* border-color: #b700ff; */
+    border-color: #0ea5e9;
+}
+

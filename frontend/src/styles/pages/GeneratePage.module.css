@@ -1,0 +1,153 @@
+/* Обертка всей страницы */
+.container {
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    border: 0;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.25s ease;
+}
+
+.container:hover {
+    /* чуть больше тень */
+    box-shadow: 0 6px 18px #0ea4e973;
+
+    
+}
+/* Заголовок */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+    /* темно-серый */
+}
+
+/* Сообщение об ошибке */
+.error {
+    color: #dc2626;
+    /* красный */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Форма */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Второй ряд: предмет и проверяющий */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Третий ряд: количество страниц, глав, язык */
+/* Третий ряд: количество страниц, глав, язык */
+.row-three {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    /* чтобы оставались в одной строке */
+}
+
+@media (max-width: 768px) {
+    .row-three {
+        align-items: start;
+        width: 100%;
+    }
+    .fieldGroup {
+        width: 100%;
+    }
+}
+
+/* Каждая группа label + input/select */
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* равномерно растягиваются */
+}
+
+.fieldGroup label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    /* предотвращает перенос label */
+}
+
+/* Стили для обертки Input, NumberInput, SelectInput */
+.inputWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputWrapper label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    /* темно-серый для подписи */
+}
+
+/* Стили для Input и NumberInput полей */
+.inputWrapper input,
+.inputWrapper select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    /* светло-серый */
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.inputWrapper input:focus,
+.inputWrapper select:focus {
+    /* Рандомный цвет рамки при фокусе */
+    border-color: var(--focus-color, #0ea5e9);
+}
+
+/* Кнопка */
+.button {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+    background-color: #0284c7;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .row-three {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

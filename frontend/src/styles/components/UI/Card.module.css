@@ -1,0 +1,253 @@
+.card {
+    border: 1px solid #efefef;
+    max-width: 374px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 24px;
+    /* height: 173px; */
+    max-height: 282px;
+
+    /* базовая тень */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+
+    /* плавная анимация тени */
+    transition: box-shadow 0.25s ease, transform 0.5s ease;
+}
+
+.card:hover {
+    /* чуть больше тень */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+
+    /* лёгкое поднятие */
+    transform: translateY(-2px);
+
+}
+
+.cardIconContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    position: relative;
+    /* важно для dropdown */
+}
+
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    color: rgb(0, 132, 255);
+    background-color: #b8ddff5d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.Ellipsis {
+    display: none;
+    cursor: pointer;
+    padding: 8px;
+    padding-top: 10px;
+    border-radius: 8px;
+    color: #444;
+}
+
+.card:hover .Ellipsis {
+    display: block;
+}
+
+.mobileBtns {
+    display: none;
+}
+
+
+@media (max-width: 1024px) {
+    .card .Ellipsis {
+        display: block;
+    }
+
+    .card {
+        height: 230px;
+    }
+
+    .mobileBtns {
+        width: 90%;
+        padding-right: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid silver;
+        margin: 10px;
+        padding-top: 15px;
+    }
+
+    .mobileBtns button {
+        font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+        border: 0;
+        border-radius: 8px;
+        height: 40px;
+        display: flex;
+        gap: 8px;
+        font-weight: 400;
+        padding: 8px 16px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .BtnRead {
+        color: blue;
+        background: #a5d8ff33;
+    }
+}
+@media (max-width: 400px) {
+    .mobileBtns {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .mobileBtns button {
+        width: 100%;
+    }
+}
+
+
+.Ellipsis:hover {
+    background: #dfdfdf75;
+}
+
+/* ====================== */
+/* DROPDOWN MENU          */
+/* ====================== */
+
+.dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 170px;
+    background: white;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 6px 0;
+    box-shadow: 0 10px 22px rgba(189, 189, 189, 0.2);
+    color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+
+    animation: dropdownFade 0.15s ease;
+}
+
+/* Обычные пункты */
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background: #e5e5e5a8;
+}
+
+/* Удалить */
+.dropdownItemDelete {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    color: red;
+    transition: background 0.2s ease;
+    border-top: 1px solid silver;
+}
+
+.dropdownItemDelete:hover {
+    background: rgba(255, 0, 0, 0.12);
+}
+
+/* Анимация */
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ====================== */
+/* TEXT STYLES            */
+/* ====================== */
+
+.cardTitle {
+    color: #222;
+    font-size: 18px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.cardSubtitle {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #686868;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    height: 50px;
+}
+
+.cardDesc {
+    color: #686868;
+    font-size: 16px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    align-items: flex-end;
+}
+
+
+/* Добавляем футер для кнопок */
+.cardFooter {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    /* чтобы прижать к низу */
+    gap: 8px;
+}
+
+/* Кнопка генерации */
+.generateBtn {
+    width: 100%;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 1024px) {
+    .cardFooter {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .generateBtn {
+        width: 48%;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cardFooter {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .generateBtn {
+        width: 100%;
+    }
+}

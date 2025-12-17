@@ -1,0 +1,101 @@
+.Page {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    max-width: 500px;
+    margin: 0 auto;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: inherit;
+}
+
+/* Верхний левый блок */
+.topLeftHeader {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-left: 40px;
+}
+
+.topLeftHeader div {
+    margin-top: 10px;
+}
+
+
+/* Центральный контейнер */
+.centerForm {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ----------- Планшеты ----------- */
+@media (max-width: 1024px) {
+    .Page {
+        padding: 15px;
+    }
+
+    .topLeftHeader {
+        top: 15px;
+        left: 15px;
+        margin-left: 20px;
+    }
+
+    .centerForm {
+        max-width: 420px;
+    }
+}
+
+/* ----------- Телефоны ----------- */
+@media (max-width: 768px) {
+    .Page {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .topLeftHeader {
+        top: 10px;
+        left: 10px;
+        margin-left: 10px;
+        gap: 6px;
+        /* display: none; */
+    }
+
+    .centerForm {
+        max-width: 95%;
+        padding: 12px;
+    }
+}
+
+/* Очень маленькие телефоны ≤ 380px */
+@media (max-width: 380px) {
+    .topLeftHeader {
+        top: 6px;
+        left: 6px;
+    }
+
+
+
+    .centerForm {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+
+@media (max-height: 667px) {
+    .topLeftHeader .logo {
+            margin-top: 0;
+        }
+}

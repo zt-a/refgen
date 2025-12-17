@@ -1,0 +1,57 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 2px solid silver;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 40px;
+    /* Фиксированная высота */
+    background: white;
+}
+
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    height: 100%;
+    padding: 0 12px;
+    /* Сохраняем только горизонтальный padding */
+    box-sizing: border-box;
+    /* Установка line-height, равного высоте wrapper, центрирует текст вертикально */
+    line-height: 40px;
+}
+
+.eyeContainer {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #f5f5f5;
+    border-left: 1px solid silver;
+    /* Убедимся, что иконка тоже по центру */
+    padding: 0;
+}
+
+/* Медиа-запросы с исправленным padding */
+
+@media (max-width: 1024px) {
+    .input {
+        /* Убираем вертикальный padding (был 10px), сохраняем горизонтальный */
+        padding: 0 36px 0 12px;
+        font-size: 15px;
+        /* Line-height 40px остается, так как wrapper обычно сохраняет высоту */
+    }
+}
+
+@media (max-width: 768px) {
+    .input {
+        /* Убираем вертикальный padding (был 8px), сохраняем горизонтальный */
+        padding: 0 32px 0 10px;
+        font-size: 14px;
+        /* Line-height 40px остается */
+    }
+}

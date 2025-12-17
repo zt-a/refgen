@@ -1,0 +1,181 @@
+.miniCard {
+    width: auto;
+    max-height: 84px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    padding: 16px;
+    background-color: white;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.miniCard span {
+    color: #777;
+}
+
+.miniCard:hover {
+    border-color: #0ea5e9;
+    background-color: rgba(14, 165, 233, 0.15);
+}
+
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.miniCard:hover .icon {
+    transform: scale(1.1);
+    background-color: rgba(14, 165, 233, 0.15);
+    color: #0ea5e9;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.info {
+    flex-grow: 1;
+    margin-left: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info p{
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+/* Контейнер для нижней части */
+.bottomWrapper {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    /* для dropdown */
+}
+
+/* Ellipsis снизу */
+.ellipsisWrapper {
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.ellipsisWrapper:hover {
+    background: #dfdfdf75;
+}
+
+/* Dropdown снизу */
+.dropdownBottom {
+    position: absolute;
+    top: 28px;
+    /* чуть ниже ellipsis */
+    right: 0;
+    width: 150px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0 10px 22px rgba(189, 189, 189, 0.2);
+    z-index: 10;
+    animation: dropdownFade 0.15s ease;
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdownItem:hover {
+    background: #e5e5e5a8;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 640px) {
+    .miniCard {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        max-height: none;
+    }
+
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .info {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .miniCard span {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .bottomWrapper {
+        margin-top: 6px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .dropdownBottom {
+        right: 0;
+        left: auto;
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .miniCard {
+        padding: 14px;
+    }
+
+    .icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .miniCard span {
+        font-size: 13px;
+    }
+}

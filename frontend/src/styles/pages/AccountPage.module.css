@@ -1,0 +1,89 @@
+/* AccountPage.module.css */
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Две колонки */
+    gap: 20px 30px;
+    /* Вертикальный и горизонтальный отступы */
+}
+
+.formSingle {
+    grid-column: 1 / -1;
+    /* Элемент на всю ширину */
+}
+
+.error {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.form input,
+.form select {
+    padding: 12px 14px;
+    border-radius: 8px;
+    /* border: 1px solid #ccc; */
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus,
+.form select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    outline: none;
+}
+
+.form button {
+    grid-column: 1 / -1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.form button:hover {
+    background-color: #357ab8;
+    transform: translateY(-2px);
+}
+
+.form button:active {
+    transform: translateY(0);
+}
+
+.notice {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #e74c3c;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.btns {
+    width: 100%;
+}

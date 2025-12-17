@@ -1,0 +1,39 @@
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    width: 90%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.numberInput {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.numberInput:focus {
+    border-color: #b700ff;
+}
+
+/* optional: for number input arrows styling */
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+    margin: 0;
+}
+
+.numberInput::-moz-inner-spin-button,
+.numberInput::-moz-outer-spin-button {
+    margin: 0;
+}

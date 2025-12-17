@@ -1,0 +1,59 @@
+.InfoCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-family: ui-sans-serif, system-ui, 'Inter', sans-serif;
+    max-height: 100px;
+    width: 100%;
+    transition: box-shadow 0.25s ease,
+        transform 0.5s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    padding: 16px 20px;
+    align-items: center;
+    border-radius: 14px;
+    border: 1px solid #f5f5f5;
+    background-color: white;
+}
+
+
+.InfoCard:hover {
+    /* чуть больше тень */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+
+    /* лёгкое поднятие */
+    transform: translateY(-2px);
+}
+
+.info {
+    flex-grow: 1;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info p,
+.info span {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.info p {
+    color: #777;
+}
+
+.info span {
+    color: #444;
+}
+
+.icon {
+    background: var(--bg-color, #1c7ed6);
+    width: 48px;
+    height: 48px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}

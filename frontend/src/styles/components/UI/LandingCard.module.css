@@ -1,0 +1,89 @@
+.Card {
+    max-width: 320px;
+    text-align: start;
+    border-radius: 16px;
+    padding: 24px;
+    line-height: 24px;
+
+    /* Тень */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    /* если нужен фон */
+}
+
+/* Hover эффект */
+.Card:hover {
+    transform: translateY(-5px);
+    /* слегка поднять карточку */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    /* более яркая тень */
+    cursor: pointer;
+}
+
+.CardIcon {
+    width: 56px;
+    height: 56px;
+    background-color: #d0f8ff;
+    /* background-color: #24a7ff; */
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardTitle {
+    font-size: 16px;
+    font-family: ui-sans-serif, "Inter";
+    font-weight: 400;
+}
+
+.CardDescription {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .Card {
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    .CardIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .CardTitle {
+        font-size: 15px;
+    }
+
+    .CardDescription {
+        font-size: 15px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Смартфоны (до 768px) */
+@media (max-width: 768px) {
+    .Card {
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .CardIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .CardTitle {
+        font-size: 14px;
+    }
+
+    .CardDescription {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+}

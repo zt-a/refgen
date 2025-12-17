@@ -1,0 +1,100 @@
+version: "3.9"
+
+x-backend-defaults: &backend-defaults
+  image: ${BACKEND_IMAGE:-refgen-backend:latest}
+  env_file:
+    - backend/.env.docker
+  depends_on:
+    db:
+      condition: service_healthy
+    rabbitmq:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  volumes:
+    - saved_docs:/app/saved_docs
+  networks:
+    - refgen
+  restart: unless-stopped
+
+services:
+  api:
+    <<: *backend-defaults
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: ["api"]
+    ports:
+      - "${BACKEND_HTTP_PORT:-8000}:8000"
+
+  worker:
+    <<: *backend-defaults
+    command: ["worker"]
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-refgen-frontend:latest}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-/api}
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "${FRONTEND_HTTP_PORT:-80}:80"
+      - "${FRONTEND_HTTPS_PORT:-443}:443"
+    networks:
+      - refgen
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME:-refgen_ai}
+      - POSTGRES_USER=${DB_USER:-refgen}
+      - POSTGRES_PASSWORD=${DB_PASS:-refgen}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-refgen} -d ${DB_NAME:-refgen_ai}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER:-guest}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS:-guest}
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+  redis:
+    image: redis:7.2-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - refgen
+
+volumes:
+  postgres_data:
+  saved_docs:
+
+networks:
+  refgen:
+    name: ${DOCKER_NETWORK_NAME:-refgen}

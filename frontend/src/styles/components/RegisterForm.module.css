@@ -1,0 +1,97 @@
+.registerForm {
+    max-width: 450px;
+    max-height: 560px;
+    border: 1px solid transparent;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.registerForm:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.registerForm label {
+    display: block;
+    text-align: start;
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.registerForm input {
+    max-width: 390px;
+    padding: 13px;
+    width: 93%;
+}
+
+.registerForm p {
+    color: rgb(73, 83, 98);
+    text-align: center;
+    font-size: 14px;
+}
+
+.registerForm p span {
+    color: rgb(19, 29, 49);
+}
+
+
+.registerForm button {
+    max-width: 390px;
+    padding: 13px;
+    margin-top: 10px;
+    width: 93%;
+}
+
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .registerForm {
+        max-width: 400px;
+        padding: 18px;
+    }
+
+    .registerForm input,
+    .registerForm button {
+        max-width: 100%;
+        width: 100%;
+        padding: 12px;
+    }
+
+    .registerForm label {
+        font-size: 13px;
+    }
+
+    .registerForm p {
+        font-size: 13px;
+    }
+}
+
+/* Смартфоны (до 768px) */
+@media (max-width: 768px) {
+    .registerForm {
+        max-width: 100%;
+        padding: 16px;
+        margin: 10px;
+    }
+
+    .registerForm input,
+    .registerForm button {
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .registerForm label {
+        font-size: 12px;
+    }
+
+    .registerForm p {
+        font-size: 12px;
+    }
+}

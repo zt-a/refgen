@@ -1,0 +1,44 @@
+{
+"welcome": "Кош келиңиз",
+
+"login": "Кирүү",
+"register": "Каттоо",
+
+"loginTitle": "Аккаунтка кирүү",
+"loginDescription": "Улантуу үчүн кириңиз",
+"loginFormEmailLabel": "Электрондук почта",
+"loginFormEmailPlaceholder": "your@email.com",
+"loginFormPasswordLabel": "Сырсөз",
+"loginFormPasswordPlaceholder": "Сырсөз",
+"loginFormSubmit": "Кирүү",
+"loginForgotPassword": "Сырсөзүңүздү унуттуңузбу?",
+"loginAuthVariant": "Аккаунтуңуз жокпу?",
+
+"registerTitle": "Аккаунт түзүү",
+"registerDescription": "Каттоодон өтүп, иштей баштаңыз",
+"registerFormUsernameLabel": "Колдонуучунун аты",
+"registerFormUsernamePlaceholder": "Колдонуучунун аты",
+"registerFormEmailLabel": "Электрондук почта",
+"registerFormEmailPlaceholder": "Электрондук почта",
+"registerFormPasswordLabel": "Сырсөз",
+"registerFormPasswordPlaceholder": "Сырсөз",
+"registerFormConfirmPasswordLabel": "Сырсөздү ырастоо",
+"registerFormConfirmPasswordPlaceholder": "Сырсөздү ырастоо",
+"registerFormSubmit": "Аккаунт түзүү",
+"registerAuthVariant": "Аккаунтуңуз мурунтан эле барбы?",
+
+
+"profile": "Профиль",
+"balance": "Баланс",
+"signOut": "Чыгуу",
+"back": "Артка",
+"read": "Көрүү",
+"download": "Жүктөп алуу",
+"edit": "Түзөтүү",
+"delete": "Өчүрүү",
+"dashboard": "Башкаруу тактасы",
+"library": "Китепкана",
+"generate": "Түзүү",
+"payment": "Төлөм",
+"language": "Тил"
+}

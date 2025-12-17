@@ -1,0 +1,130 @@
+.appLayout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* -------------------- Desktop Sidebar -------------------- */
+.sidebarDesktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 287px;
+    height: 100vh;
+    z-index: 1000;
+}
+
+@media (max-width: 1024px) {
+    .sidebarDesktop {
+        display: none;
+    }
+}
+
+/* -------------------- Modal Sidebar Mobile -------------------- */
+.sidebarModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 287px;
+    height: 100vh;
+    background: #fff;
+    z-index: 2000;
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1900;
+}
+
+/* -------------------- Main Area -------------------- */
+.mainArea {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+    .mainArea {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* -------------------- Header -------------------- */
+.Header {
+    position: fixed;
+    top: 0;
+    left: 287px;
+    width: calc(100% - 287px);
+    height: 95px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 900;
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+}
+
+.headerRight {
+    margin-right: 64px;
+}
+
+@media (max-width: 1024px) {
+    .Header {
+        left: 0;
+        width: 100%;
+        border-left: none;
+    }
+}
+
+/* кнопка гамбургер */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    color: black;
+    margin-left: 30px;
+}
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+/* -------------------- Content -------------------- */
+.pageContent {
+    margin-top: 87px;
+    height: calc(100vh - 95px);
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f3f386;
+    /* центрируем контейнер по горизонтали */
+}
+
+/* Внутренний контейнер */
+.pageContentContainer {
+    width: 100%;
+    font-family: ui-sans-serif, system-ui, 'Inter', 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 1200px;
+    /* или любое ограничение */
+    padding: 0 20px;
+    /* внутренние отступы */
+    box-sizing: border-box;
+}
