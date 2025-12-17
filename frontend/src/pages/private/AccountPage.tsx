@@ -52,7 +52,6 @@ const AccountPage = () => {
             setError("");
             alert("Профиль успешно обновлен. Теперь можно генерировать документы.");
             navigate("/dashboard");
-
         } catch (e) {
             setError("Ошибка при обновлении профиля.");
             console.log(e);

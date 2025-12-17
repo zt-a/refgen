@@ -49,10 +49,10 @@ async def register(
     # Создаем профиль с пустыми данными
     profile = Profile(
         user_id=new_user.id,
-        name="____________________",
-        surname="__________________",
-        patronymic="_________________",
-        phone_number="+996700700700",
+        name="",
+        surname="",
+        patronymic="",
+        phone_number="",
         phone_number_verified=False,
         university="__________________",
         faculty="__________",

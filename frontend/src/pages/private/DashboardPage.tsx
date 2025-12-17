@@ -24,16 +24,7 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-//  useEffect(() => {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-//      setLoading(true);
-//      console.log($api.defaults.baseURL);
-//      $api.get(`${$api.defaults.baseURL}/api/v1/essays`)
-//        .then(res => setEssays(res.data.essays)) // <-- добавляем .essays
-//        .catch(() => console.error("Ошибка загрузки эссе"))
-//       .finally(() => setLoading(false));
-//  }, []);
-      useEffect(() => {
+  useEffect(() => {
     const fetchEssays = async () => {
       setLoading(true);
       try {
@@ -51,7 +42,7 @@ const DashboardPage = () => {
   const downloadRefPrint = async (id: string) => {
     try {
       const response = await $api.get(
-        `api/v1/refprint/${id}`,
+        `/v1/refprint/${id}`,
         {
           responseType: 'blob',
         }

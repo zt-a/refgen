@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         (async () => {
             try {
-                const me = await $api.get("/api/v1/auth/current_user");
+                const me = await $api.get("/v1/auth/current_user");
                 setUser(me.data);
                 setIsAuth(true);
 
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const register = async (data: { username: string; email: string; password: string }) => {
         try {
-            const res = await $api.post("/api/v1/auth/register", data);
+            const res = await $api.post("/v1/auth/register", data);
             localStorage.setItem("access_token", res.data.access_token);
             setUser(res.data.user);
             setIsAuth(true);
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const login = async (email: string, password: string) => {
         try {
-            const res = await $api.post("/api/v1/auth/login", { email, password });
+            const res = await $api.post("/v1/auth/login", { email, password });
             localStorage.setItem("access_token", res.data.access_token);
             setUser(res.data.user);
             setIsAuth(true);
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const logout = async () => {
         try {
-            await $api.get("/api/v1/auth/logout", { withCredentials: true });
+            await $api.get("/v1/auth/logout", { withCredentials: true });
         } catch (e) {
             console.log("Ошибка logout:", e);
         } finally {
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const getProfile = async () => {
         try {
-            const res = await $api.get("/api/v1/profile/me");
+            const res = await $api.get("/v1/profile/me");
             setProfile(res.data);
         } catch (e) {
             console.log("Ошибка получения профиля:", e);
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const updateProfile = async (data: Partial<Profile>) => {
         try {
-            const res = await $api.put("/api/v1/profile/", data);
+            const res = await $api.put("/v1/profile/", data);
             setProfile(res.data);
         } catch (e) {
             console.log("Ошибка обновления профиля:", e);

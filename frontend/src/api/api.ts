@@ -1,14 +1,14 @@
 import axios from "axios";
 
+const rawBaseUrl = import.meta.env.VITE_API_URL || "/api";
+const API_BASE_URL = rawBaseUrl.replace(/\/+$/, "");
+
 export const $api = axios.create({
-    // baseURL: import.meta.env.VITE_API_URL,
-    baseURL: "https://refgen.kg/api",
-    withCredentials: true 
+    baseURL: API_BASE_URL,
+    withCredentials: true,
 });
 
 $api.interceptors.request.use((config) => {
-    console.log(`${import.meta.env.VITE_API_URL}`);
-    console.log(config)
     const token = localStorage.getItem("access_token");
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -21,15 +21,12 @@ $api.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        if (
-            error.response?.status === 401 &&
-            !originalRequest._isRetry
-        ) {
+        if (error.response?.status === 401 && !originalRequest._isRetry) {
             originalRequest._isRetry = true;
 
             try {
                 const refresh = await axios.get(
-                    `${import.meta.env.VITE_API_URL}/api/v1/auth/refresh`,
+                    `${API_BASE_URL}/v1/auth/refresh`,
                     { withCredentials: true }
                 );
 

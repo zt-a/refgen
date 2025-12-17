@@ -4,6 +4,7 @@ import { $api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/UI/Input";
 import { Search } from "lucide-react";
+import { getAllEssays } from "../../services/essayService";
 
 // Тип для эссе
 type Essay = {
@@ -22,18 +23,25 @@ const LibraryPage = () => {
 
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoading(true);
-    $api.get("api/v1/essays")
-      .then(res => setEssays(res.data.essays)) // <-- добавляем .essays
-      .catch((e) => console.error("Ошибка загрузки эссе", e))
-      .finally(() => setLoading(false));
+    const fetchEssays = async () => {
+      setLoading(true);
+      try {
+        const data = await getAllEssays();
+        setEssays(data.essays);
+      } catch (err) {
+        console.error("Ошибка загрузки эссе", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEssays();
   }, []);
 
   const downloadRefPrint = async (id: string) => {
     try {
       const response = await $api.get(
-        `api/v1/refprint/${id}`,
+        `/v1/refprint/${id}`,
         {
           responseType: 'blob',
         }
